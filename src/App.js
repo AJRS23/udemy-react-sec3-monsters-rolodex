@@ -1,9 +1,19 @@
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      name: "Alvaro"
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -15,11 +25,13 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {this.state.name}
         </a>
+        <button onClick={ () => this.setState({name: "Alvaro Ramirez"}) }> Change Text</button>
       </header>
     </div>
-  );
+    );
+  }
 }
 
 export default App;

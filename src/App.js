@@ -13,7 +13,7 @@ class App extends Component {
       searchField: ''
     };
 
-    /* Another way of doing this is to make the function an arrow function so the context
+    /* Another way of doing this is to make the function an arrow method so the context
        will be automatically bind in the context it was declare the first time (LEXICAL SCOPE) */
     //this.handleChange = this.handleChange.bind(this); 
   }
@@ -38,7 +38,8 @@ class App extends Component {
       <div className="App">
         <SearchBox
           placeholder='Search monsters'
-          handleChange={ e => this.handleChange(e)}
+          //handleChange={ e => this.handleChange(e)} //we are invoking the func when render
+          handleChange={this.handleChange}  //it is assigning so it is invoke only when the event happens
         />
         <CardList monsters={filteredMonsters} />
       </div>

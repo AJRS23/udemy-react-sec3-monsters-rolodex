@@ -12,12 +12,20 @@ class App extends Component {
       monsters : [],
       searchField: ''
     };
+
+    /* Another way of doing this is to make the function an arrow function so the context
+       will be automatically bind in the context it was declare the first time (LEXICAL SCOPE) */
+    //this.handleChange = this.handleChange.bind(this); 
   }
 
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({ monsters: users }));
+  }
+
+  handleChange = e => {
+    this.setState({searchField: e.target.value});
   }
 
   render() {
@@ -30,7 +38,7 @@ class App extends Component {
       <div className="App">
         <SearchBox
           placeholder='Search monsters'
-          handleChange={ e => this.setState({searchField: e.target.value})}
+          handleChange={ e => this.handleChange(e)}
         />
         <CardList monsters={filteredMonsters} />
       </div>

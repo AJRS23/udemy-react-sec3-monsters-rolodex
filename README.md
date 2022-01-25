@@ -47,6 +47,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
    Add ‘“scripts”: { “predeploy”: “yarn build”, “deploy”: “gh-pages -d build” }’ 
 
 3) Run this command: 'yarn deploy' 
+4) Go to Github -> Repository Settings -> Github Pages: 
+   Source branch should be: "gh-pages" and click on link.
 
 ### `npm run build` fails to minify
 
